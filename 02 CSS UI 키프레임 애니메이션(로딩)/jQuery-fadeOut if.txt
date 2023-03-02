@@ -1,0 +1,17 @@
+<!-- 2초 후에 .loader_wrap>fadeOut -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.loader_wrap').delay('2000').fadeOut();
+    });
+</script>
+
+<!-- 2초 후에 해상도 768px 이상일 때 pc> .loader_wrap:fadeOut, 해상도 768 미만 mobile>display:none;-->
+<script type="text/javascript">
+        $(document).ready(function(){
+            if($(window).width()>768){
+                $('.loader_wrap').delay('2000').fadeOut();
+            } else {
+                $('.loader_wrap').css({'display':'none'});
+            }
+        });
+</script>
