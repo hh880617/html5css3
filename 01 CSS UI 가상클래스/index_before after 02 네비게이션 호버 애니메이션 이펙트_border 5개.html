@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="custom.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css"  type="text/css">
+  <title>애니메이션 네비게이션 호버 이펙트_border 5개</title>
+  <style>/* Google Web Fonts CDN */
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+    
+    /* Fontawesome 4.7 */
+    @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.5em;
+      margin: 0;
+      color: #222;
+      font-weight: 300;
+      background-color: #f4f4f4;
+      display:flex;
+      justify-content: center;
+      align-items:center;
+      height: 100vh;
+    }
+    a{
+      color:#222;
+      text-decoration:none;
+    }
+    .gnb {
+
+    }
+   
+    .gnb a {
+      position:relative;
+      display:block;
+      margin:40px 0;
+      padding:20px 0;
+      font-size: 40px;
+      box-sizing:border-box;
+    }
+    .gnb a:nth-child(1):before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 0;
+      background-color:crimson;
+      left:0;
+      bottom:0;
+      transition:0.3s;
+    }
+    .gnb a:nth-child(1):hover:before {
+      width: 100%;
+    }
+    .gnb a:nth-child(2):before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 0;
+      background-color:crimson;
+      right:0;
+      bottom:0;
+      transition:0.3s;
+    }
+    .gnb a:nth-child(2):hover:before {
+      width: 100%;
+    }
+    .gnb a:nth-child(3):before {
+      content: '';
+      position: absolute;
+      height: 4px;
+      width: 4px;
+      background-color:crimson;
+      left:0;
+      bottom:0;
+      transition:0.3s;
+    }
+    .gnb a:nth-child(3):hover:before {
+      left: 100%;
+    }
+    .gnb a:nth-child(4):before {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background-color:crimson;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      transition:0.3s;
+    }
+    .gnb a:nth-child(4):hover:before {
+      width: 100%;
+    }
+    .gnb a:nth-child(5):before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color:crimson;
+      bottom:0;
+      left:50%;
+      transform:translateX(-50%);
+      transition:0.3s;
+    }
+    .gnb a:nth-child(5):hover:before {
+      width: 0%;
+    }
+  </style>
+</head>
+
+<body> 
+  <div class="gnb">
+    <a href="#none">Youtube online class</a>
+    <a href="#none">Youtube online class</a>
+    <a href="#none">Youtube online class</a>
+    <a href="#none">Youtube online class</a>
+    <a href="#none">Youtube online class</a>
+  </div>
+</body>
+</html>

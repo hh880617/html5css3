@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="custom.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css"  type="text/css">
+  <title>탭 메뉴_slide_풀스크린 프로토타입02</title>
+  <style>
+  /* Google Web Fonts CDN */
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+  /* Fontawesome 4.7 */
+  @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.5em;
+      margin: 0;
+      color: #222;
+      font-weight: 300;
+      background:#fff;
+    }
+    a{
+      color:#222;
+      text-decoration:none;
+    }
+    input[name=tabmenu]{
+      display:none;
+    }
+    .tab-inner {
+    }
+    .tabs  {
+      overflow:hidden;
+      position:relative;
+      height:100vh;
+    }
+    .items{
+      width: 300%;
+      position:absolute;
+      top:0;
+      left:0;      
+      transition:0.5s;
+    }
+    .items div {
+      width: 33.33333%;
+      height:100vh;
+      float:left;
+      position:relative;
+      box-sizing:border-box;
+    }
+    /* .items div:nth-child background */
+    .items div:nth-child(1) {
+      background:url(images/photo-01.jpg) no-repeat center center fixed;
+      background-size:cover;
+    }
+    .items div:nth-child(2)  {
+      background:url(images/photo-02.jpg) no-repeat center center fixed;
+      background-size:cover;
+    }
+    .items div:nth-child(3)  {
+      background:url(images/photo-03.jpg) no-repeat center center fixed;
+      background-size:cover;
+    } 
+    /* .items div:before */
+    .items div:nth-child(1):before, 
+    .items div:nth-child(2):before, 
+    .items div:nth-child(3):before {
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+    }
+    /* .items div:before background */
+    .items div:nth-child(1):before {
+      background:linear-gradient(135deg,gold, transparent);
+    }
+    .items div:nth-child(2):before {
+      background:linear-gradient(135deg,crimson, transparent);
+    }
+    .items div:nth-child(3):before {
+      background:linear-gradient(135deg,dodgerblue, transparent);
+    }
+    /* .items div h1 */
+    .items div h1 {
+      font-size: 120px;
+      font-weight: normal;
+      color:#fff;
+      position:relative;
+      text-align: center;
+      transform:translateY(-200px);
+      opacity:0;
+      transition:0.5s;
+      transition-delay:0.5s;
+    }
+    /* btn label */
+    .btn {
+      position:absolute;
+      width:100%;
+      bottom:0px;
+      padding:15px 0;
+      background:rgba(0, 0, 0, 0.3);
+      text-align:center;
+    }
+    .btn label {
+      display:inline-block;
+      color:#fff;
+      margin:0 10px 0;
+      cursor: pointer;
+    }
+
+    /* input:checked .tabs .items */
+    input[id=tab01]:checked ~ .tabs .items {
+      left:0;
+    }
+    input[id=tab02]:checked ~ .tabs .items {
+      left:-100%;
+    }
+    input[id=tab03]:checked ~ .tabs .items{
+      left:-200%;
+    }    
+    /* input:checked h1 */
+    input[id=tab01]:checked ~ .tabs .items div:nth-child(1) h1,
+    input[id=tab02]:checked ~ .tabs .items div:nth-child(2) h1,
+    input[id=tab03]:checked ~ .tabs .items div:nth-child(3) h1 {
+      transform:translateY(200px);
+      opacity:1;
+    }
+    /* btn input:checked label */
+    input[id=tab01]:checked ~ .btn label[for="tab01"],
+    input[id=tab02]:checked ~ .btn label[for="tab02"],
+    input[id=tab03]:checked ~ .btn label[for="tab03"] {
+      color:crimson;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab-inner">
+    <input type="radio" id="tab01" name="tabmenu" checked>
+    <input type="radio" id="tab02" name="tabmenu">
+    <input type="radio" id="tab03" name="tabmenu">
+
+    <div class="tabs">
+      <div class="items">
+        <div><h1>Portfolio Slide #01</h1></div>
+        <div><h1>Portfolio Slide #02</h1></div>
+        <div><h1>Portfolio Slide #03</h1></div>
+      </div>
+    </div>
+
+    <div class="btn">
+      <label for="tab01">Graphic</label>
+      <label for="tab02">Web Publishing</label>
+      <label for="tab03">Logo Logo & CI</label>
+    </div>
+  </div>
+
+</body>
+</html>

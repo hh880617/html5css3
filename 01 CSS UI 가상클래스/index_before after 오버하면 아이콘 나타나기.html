@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>무제 문서</title>
+	
+<style>
+	/* Google Web Font */
+	@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+	
+	body {
+		font-family: 'Raleway', sans-serif;
+		color: #222;
+		line-height: 1.5em;
+		font-weight: 300;
+		margin: 0;
+	}
+	a{
+		color:#222;
+		text-decoration:none;
+	}
+	*{margin:0;padding:0;}
+	/* :before :after 나눠서 하는 방식 */
+	ul.clearfix > li {display:inline-block;}	
+	ul.clearfix > li > a{ 
+		display:block; 
+		position:relative; 
+		width:300px;
+		height:auto;
+	}
+	
+	ul.clearfix > li > a:before{ 
+		content:''; 
+		position:absolute; 
+		top:50%; 
+		left:50%; 
+		right:0;
+		bottom:0;
+		transform:translate(-50%, -50%); 
+		z-index:20; 
+		background-image:url("btn_more.png");
+		background-position-x:center; 
+		background-position-y:center;
+		background-repeat:no-repeat; 
+		transition-duration:0.4s; 
+		opacity: 0;
+	}
+	
+	ul.clearfix > li > a:after{ 
+		content:''; 
+		position:absolute; 
+		top:0; 
+		bottom:0; 
+		left:0; 
+		right:0; 
+		background-color:rgba(0,0,0,0); 
+		transition-duration:0.4s; 
+	}
+	
+	ul.clearfix > li > a:hover:before{
+		background-position-y:50%;
+		opacity: 1;
+	}
+	
+	ul.clearfix > li > a:hover:after{
+		background-color:rgba(0,0,0,0.5);
+	}	
+	
+	
+	/* :before :after 한쪽에 모아서 하는 방식 */
+	ul.clearfix2 > li {display:inline-block;}
+	ul.clearfix2 > li > a{ 
+		display:block; 
+		position:relative; 
+		width:300px;
+		height:auto;
+	}
+	
+	ul.clearfix2 > li > a:after{ 
+		content:''; 
+		position:absolute; 
+		top:0; 
+		left:0; 
+		right:0;
+		bottom:0; 
+		z-index:20; 
+		background-image:url("btn_more.png");
+		background-position-x:center; 
+		background-position-y:center;
+		background-repeat:no-repeat; 
+		transition-duration:0.4s; 
+		background-color:rgba(0,0,0,0.5); 
+		opacity: 0;
+	}
+	
+	ul.clearfix2 > li > a:hover:after{
+		opacity: 1;
+	}
+</style>
+</head>
+
+<body>
+	
+<ul class="clearfix">
+	<li><a href="#"><img width="300" height="auto" src="http://www.kulcom.co.kr/theme/basic/img/section02_02.jpg"></a></li>
+	<li><a href="#"><img width="300" height="auto" src="http://www.kulcom.co.kr/theme/basic/img/section02_03.jpg"></a></li>
+	<li><a href="#"><img width="300" height="auto" src="http://www.kulcom.co.kr/theme/basic/img/section02_04.jpg"></a></li>
+</ul>
+
+
+<ul class="clearfix2">
+	<li><a href="#"><img width="300" height="auto" src="http://www.kulcom.co.kr/theme/basic/img/section02_02.jpg"></a></li>
+	<li><a href="#"><img width="300" height="auto" src="http://www.kulcom.co.kr/theme/basic/img/section02_03.jpg"></a></li>
+	<li><a href="#"><img width="300" height="auto" src="http://www.kulcom.co.kr/theme/basic/img/section02_04.jpg"></a></li>
+</ul>
+</body>
+</html>

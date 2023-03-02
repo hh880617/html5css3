@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>08) 인접선택자 - 풀스크린 탭 콘텐츠 슬라이더 프로토타입</title>
+  <link rel="stylesheet" href="style.css"> <title>탭 메뉴_slide_풀스크린 프로토타입01</title>
+  <style>
+  /* Google Web Fonts CDN */
+  @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+  /* Fontawesome 4.7 */
+  @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.5em;
+      margin: 0;
+      color: #222;
+      font-weight: 300;
+      background:#fff;
+    }
+    a{
+      color:#222;
+      text-decoration:none;
+    }
+    input[name=tabmenu]{
+      display:none;
+    }
+    .tab-inner {
+    }
+    .tabs  {
+      overflow:hidden;
+      position:relative;
+      height:100vh;
+    }
+    .items{
+      width: 300%;
+      position:absolute;
+      top:0;
+      left:0;      
+      transition:0.5s;
+    }
+    .items div {
+      float:left;
+      width: 33.33333%;
+      height:100vh;
+      box-sizing:border-box;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* .items div:nth-child background */
+    .items div:nth-child(1) {
+      background-color:teal;
+    }
+    .items div:nth-child(2)  {
+      background-color:dodgerblue;
+    }
+    .items div:nth-child(3)  {
+      background-color:yellowgreen;
+    } 
+    /* .items div h1 */
+    .items div h1 {
+      font-size: 80px;
+      font-weight: normal;
+      color: #fff;
+    }
+    /* btn label */
+    .btn {
+      position:absolute;
+      width:100%;
+      bottom:20px;
+      text-align:center;
+    }
+    .btn label {
+      display:inline-block;
+      width:50px;
+      height:5px;
+      background-color:#fff;
+      cursor: pointer;
+    }
+
+    /* input:checked .tabs .items */
+    input[id=tab01]:checked ~ .tabs .items {
+      left:0;
+    }
+    input[id=tab02]:checked ~ .tabs .items {
+      left:-100%;
+    }
+    input[id=tab03]:checked ~ .tabs .items{
+      left:-200%;
+    }    
+    /* btn input:checked label */
+    input[id=tab01]:checked ~ .btn label[for="tab01"],
+    input[id=tab02]:checked ~ .btn label[for="tab02"],
+    input[id=tab03]:checked ~ .btn label[for="tab03"] {
+      background:#000;
+    }
+  </style>
+</head>
+<body>
+ 
+  <div class="tab-inner">
+    <input type="radio" name="tabmenu" id="tab01" checked>
+    <input type="radio" name="tabmenu" id="tab02">
+    <input type="radio" name="tabmenu" id="tab03">
+
+    <div class="tabs">
+      <div class="items">
+        <div>
+          <h1>Slide Content 01</h1>
+        </div>
+        <div>
+          <h1>Slide Content 02</h1>
+        </div>
+        <div>
+          <h1>Slide Content 03</h1>
+        </div>
+      </div>
+    </div>
+    <div class="btn">
+      <label for="tab01"></label>
+      <label for="tab02"></label>
+      <label for="tab03"></label>
+    </div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="custom.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css"  type="text/css">
+  <title>라디오 체크박스 커스텀01</title>
+  <style>/* Google Web Fonts CDN */
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+    
+    /* Fontawesome 4.7 */
+    @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.5em;
+      margin: 0;
+      color: #222;
+      font-weight: 300;
+      background-color:#fff;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items:center;
+      height: 100vh;
+    }
+    a{
+      color:#222;
+      text-decoration:none;
+    }
+    a.btn,.btn{line-height:35px;height:35px;padding:0 10px;text-align:center;font-weight:bold;border:0;outline:none;
+      -webkit-transition: background-color 0.3s ease-out;
+      -moz-transition: background-color 0.3s ease-out;
+      -o-transition: background-color 0.3s ease-out;
+      transition: background-color 0.3s ease-out;
+    }
+
+    ul {overflow:hidden; width:500px; margin-bottom:30px;}
+    /* 더 보기 버튼 */
+    .more_button {overflow:hidden;margin-bottom:15px;}
+    .more_button li {display:inline-block; margin-bottom:3px;}
+    .more_button li button {font-size:1em;color:#6c757d;background-color:transparent;background-image:none;border-color:#e8e8e8;}
+    .more_button li.on button {background-color:#1cbbb4;color:#fff;border-color:#1cbbb4;}
+
+    /* 체크박스:checked 버튼 스타일 */
+    .checkbox {overflow:hidden;}
+    .checkbox li {float:left;margin:0 5px 5px 0;}
+    .checkbox input[type="checkbox"] {display:none;}
+    .checkbox p.option {padding:0 10px;width:auto;height:38px;line-height:36px;background:#fff;color:#666666;border:1px solid #e8e8e8;border-radius:3px;font-size:0.9em;font-weight:normal;letter-spacing:-0.01em;cursor:pointer;transition:0.3s;}
+    .checkbox input[type="checkbox"]:checked + label p {background:#ff6600;color:#fff;border:1px solid #ff6600;}
+	.checkbox input[type="checkbox"]:disabled + label p {background:#666;color:#999;border-color:#666;}
+
+    /* 라디오:checked 버튼 스타일 */
+    .radiobox {overflow:hidden;}
+    .radiobox li {float:left;margin:0 5px 5px 0;}
+    .radiobox input[type="radio"] {display:none;}
+    .radiobox p.option {padding:0 10px;width:auto;height:38px;line-height:36px;background:#fff;color:#666666;border:1px solid #e8e8e8;border-radius:3px;font-size:0.9em;font-weight:normal;letter-spacing:-0.01em;cursor:pointer;transition:0.3s;}
+    .radiobox input[type="radio"]:checked + label p {background:#ff6600;color:#fff;border:1px solid #ff6600;}
+	.radiobox input[type="radio"]:disabled + label p {background:#666;color:#999;border-color:#666;}
+
+    /* 체크박스:checked 리스트 스타일 */
+    .checklist {overflow:hidden;}
+    .checklist li {margin:0 0 5px 0;height:24px;line-height:24px;}
+    .checklist .check_list {vertical-align:top;padding:0 0 0 8px;color:#666666;font-size:1.08em;font-weight:normal;letter-spacing:-0.01em;cursor:pointer}
+    .checklist input[type="checkbox"] {display:none;}
+    .checklist p.option {display:inline-block;width:24px;height:24px;line-height:24px;margin:0 5px 0 0;background:url("img/btn_check.png") no-repeat 0 0;-webkit-appearance: none;cursor:pointer;vertical-align:top;}
+    .checklist input[type="checkbox"]:checked + label p {background-position: 0 -24px;} 
+
+    /* 라디오:checked 리스트 스타일 */
+    .radiolist {overflow:hidden;}
+    .radiolist li {margin:0 0 5px 0;height:24px;line-height:24px;}
+    .radiolist .radio_list {vertical-align:top;padding:0 0 0 8px;color:#666666;font-size:1.08em;font-weight:normal;letter-spacing:-0.01em;cursor:pointer}
+    .radiolist input[type="radio"] {display:none;}
+    .radiolist p.option {display:inline-block;width:24px;height:24px;line-height:24px;margin:0 5px 0 0;background:url("img/btn_check.png") no-repeat 0 0;-webkit-appearance: none;cursor:pointer;vertical-align:top;}
+    .radiolist input[type="radio"]:checked + label p {background-position: 0 -24px;}
+  </style>
+</head>
+
+<body>
+    
+  <ul class="more_button">
+    <li class="on"><button type="button" class="btn">#주거</button></li>
+    <li><button type="button" class="btn">#상가</button></li>
+    <li><button type="button" class="btn">#토지</button></li>
+    <li><button type="button" class="btn">#건물신축</button></li>
+    <li><button type="button" class="btn">#인테리어</button></li>
+    <li><button type="button" class="btn">#부분보수</button></li>
+  </ul>
+  <script type="text/javascript">		
+    $('.more_button > li > button').on('click', function(e){
+      $(this).parent().addClass('on').siblings().removeClass('on');
+    });
+  </script>
+
+  <ul class="checkbox">
+    <li>
+        <input id="check1" name="checkbox" type="checkbox">
+        <label for="check1" class="check_button"><p class="option">사무실</p></label>
+    </li>
+    <li>
+        <input id="check2" name="checkbox" type="checkbox">
+        <label for="check2" class="check_button"><p class="option">주상복합</p></label>
+    </li>
+    <li>
+        <input id="check3" name="checkbox" type="checkbox">
+        <label for="check3" class="check_button"><p class="option">테마형상가</p></label>
+    </li>
+    <li>
+      <input id="check4" name="checkbox" type="checkbox">
+        <label for="check4" class="check_button"><p class="option">근린상가</p></label>
+    </li>
+    <li>
+        <input id="check5" name="checkbox" type="checkbox">
+        <label for="check5" class="check_button"><p class="option">일반상가</p></label>
+    </li>
+    <li>
+        <input id="check6" name="checkbox" type="checkbox">
+        <label for="check6" class="check_button"><p class="option">기타</p></label>
+    </li>
+</ul>
+
+<ul class="radiobox">
+  <li>
+      <input id="radio1" name="radiodbox" type="radio">
+      <label for="radio1" class="radio_button"><p class="option">사무실</p></label>
+  </li>
+  <li>
+      <input id="radio2" name="radiodbox" type="radio">
+      <label for="radio2" class="radio_button"><p class="option">주상복합</p></label>
+  </li>
+  <li>
+      <input id="radio3" name="radiodbox" type="radio">
+      <label for="radio3" class="radio_button"><p class="option">테마형상가</p></label>
+  </li>
+  <li>
+      <input id="radio4" name="radiodbox" type="radio">
+      <label for="radio4" class="radio_button"><p class="option">근린상가</p></label>
+  </li>
+  <li>
+      <input id="radio5" name="radiodbox" type="radio">
+      <label for="radio5" class="radio_button"><p class="option">일반상가</p></label>
+  </li>
+  <li>
+      <input id="radio6" name="radiodbox" type="radio">
+      <label for="radio6" class="radio_button"><p class="option">기타</p></label>
+  </li>
+</ul>
+
+<ul class="checklist">
+  <li>                                	
+      <input id="check_list1" name="check_list" type="checkbox">
+      <label for="check_list1" class="check_list"><p class="option"></p> 5천만원 이하</label>
+  </li>
+  <li>
+      <input id="check_list2" name="check_list" type="checkbox">
+      <label for="check_list2" class="check_list"><p class="option"></p> 5천 ~1억원 이하</label>
+  </li>
+  <li>
+      <input id="check_list3" name="check_list" type="checkbox">
+      <label for="check_list3" class="check_list"><p class="option"></p> 1억~2억</label>
+  </li>
+  <li>
+      <input id="check_list4" name="check_list" type="checkbox">
+      <label for="check_list4" class="check_list"><p class="option"></p> 3억 이상</label>
+  </li>
+</ul>
+
+<ul class="radiolist">
+  <li>
+      <input id="radiolist1" name="radio_list" type="radio">
+      <label for="radiolist1" class="radio_list"><p class="option"></p> 5천만원 이하</label>
+  </li>
+  <li>
+      <input id="radiolist2" name="radio_list" type="radio">
+      <label for="radiolist2" class="radio_list"><p class="option"></p> 5천 ~1억원 이하</label>
+  </li>
+  <li>
+      <input id="radiolist3" name="radio_list" type="radio">
+      <label for="radiolist3" class="radio_list"><p class="option"></p> 1억~2억</label>
+  </li>
+  <li>
+      <input id="radiolist4" name="radio_list" type="radio">
+      <label for="radiolist4" class="radio_list"><p class="option"></p> 3억 이상</label>
+  </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>animation - keyframe(border-animation4)</title>
+<style>
+
+body{
+	margin:0;
+	padding:0;
+	background:#f1ff36;
+	font-family:verdana;
+}
+    
+    button {
+        position:relative;
+        font-size:20px;
+        color:#10b800;
+        border:none;
+        padding:30px 35px;
+        cursor:pointer;
+        background-color:#000;
+    }    
+
+button::before,
+button::after {
+	content:"";
+	position:absolute;
+    width:25%;
+    height:25%;
+    border:5px solid #00b800;
+    transition:all 0.8s ease;
+}
+    
+    button::after {
+        bottom:0;
+        right:0;
+        border-top-color:transparent;
+        border-left-color:transparent;
+    }
+    button::before {
+        top:0;
+        left:0;
+        border-bottom-color:transparent;
+        border-right-color:transparent;
+    }
+
+
+    button:hover::after,
+    button:hover::before {
+        width:95%;
+        height:85%;        
+    }
+
+
+</style>
+
+</head>
+
+<body>
+	<button>Hover me</button>
+
+</body>
+</html>

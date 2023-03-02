@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="custom.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css"  type="text/css">
+  <title>탭 메뉴 - opacity 응용</title>
+  <style>
+  /* Google Web Fonts CDN */
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+  /* Fontawesome 4.7 */
+  @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.5em;
+      margin: 0;
+      color: #222;
+      font-weight: 300;
+      background:#fff;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    a{
+      color:#222;
+      text-decoration:none;
+    }
+    input[name=tabmenu]{
+      display:none;
+    }
+    .tab-inner {
+      position:relative;
+      width:300px;
+      height:340px;
+      overflow:hidden;
+    }
+    .content {
+      overflow:hidden;
+      position:absolute;
+      top:0;
+      left:-40px;
+      opacity: 0;
+      visibility:hidden;
+      transition:0.5s;
+    }
+    /* input:checked slide */
+    input[id=tab01]:checked ~ .slide01,
+    input[id=tab02]:checked ~ .slide02,
+    input[id=tab03]:checked ~ .slide03 {
+      opacity:1;
+      visibility:visible;
+      left:0;
+    }
+    /* heading text */
+    .heading .text1,
+    .heading .text2,
+    .heading .text3 {
+      position:absolute;
+      top:20px;
+      left:10px;
+      width:100px;
+      height:100px;
+      box-sizing:border-box;
+      padding-top:25px;
+      border-radius: 50%;
+      background:crimson;
+      font-size:30px;
+      text-align:center;
+      color:#fff;
+      font-weight:bold;
+      line-height:1;
+      transform:translateY(-50px);
+      opacity:0;
+      transition:0.5s;
+    }
+    .heading .text1 span,
+    .heading .text2 span,
+    .heading .text3 span {
+      font-size: 20px;
+      display:block;
+      margin-top:5px;
+    }
+    .heading .text2 {
+      background:dodgerblue;
+    }
+    .heading .text3 {
+      background:yellowgreen;
+    }
+    /* input:checked heading text */
+    input[id=tab01]:checked ~ .heading .text1,
+    input[id=tab02]:checked ~ .heading .text2,
+    input[id=tab03]:checked ~ .heading .text3{
+      transform:translateY(0px);
+      opacity:1;
+      transition-delay:0.5s;
+    }
+        /* btn label */
+    .btn {
+      position:absolute;
+      width:100%;
+      bottom:0;
+      text-align:center;
+    }
+    .btn label {
+      display:inline-block;
+      width:20px;
+      height:20px;
+      border-radius: 50%;
+      background:lightgray;
+      cursor: pointer;
+    }
+    /* btn input:checked label */
+    input[id=tab01]:checked ~ .btn label[for="tab01"],
+    input[id=tab02]:checked ~ .btn label[for="tab02"],
+    input[id=tab03]:checked ~ .btn label[for="tab03"] {
+      background:crimson;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="tab-inner">
+    <input type="radio" id="tab01" name="tabmenu" checked >
+    <input type="radio" id="tab02" name="tabmenu">
+    <input type="radio" id="tab03" name="tabmenu">
+
+    <div class="content slide01">
+      <a href="#none1"><img src="images/slide-01.jpg"></a>
+    </div>
+    <div class="content slide02">
+      <a href="#none2"><img src="images/slide-02.jpg"></a>   
+    </div>
+    <div class="content slide03">  
+      <a href="#none3"><img src="images/slide-03.jpg"></a> 
+    </div>
+
+    <div class="heading">
+      <div class="text1">Sale<span>50%</span></div>      
+      <div class="text2">Sale<span>50%</span></div>    
+      <div class="text3">Sale<span>50%</span></div>
+    </div>
+
+    <div class="btn">
+      <label for="tab01"></label>
+      <label for="tab02"></label>
+      <label for="tab03"></label>
+    </div>
+  </div>
+
+</body>
+</html>

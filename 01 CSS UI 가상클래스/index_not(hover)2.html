@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>i:not(:hover) 2</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<style>
+
+*{margin:0;padding:0;}
+
+    .social {
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+    }
+    
+    i {
+      margin: auto 25px;
+      cursor: pointer;
+      color: rgb(172, 168, 168);
+      font-size: 4rem;
+      transition: 0.5s;
+    }
+    
+    .social:hover i:not(:hover) {
+      opacity: 0.3;
+    }
+    
+    i:hover {
+      transform: translateY(-10px);
+      color: black;
+    }
+
+
+</style>
+
+</head>
+
+<body>
+<div class="social">
+	<i class="fab fa-facebook"></i>
+	<i class="fab fa-instagram"></i>
+	<i class="fab fa-twitter"></i>
+	<i class="fab fa-github"></i>
+	<i class="fab fa-codepen"></i>
+</div>
+
+</body>
+</html>

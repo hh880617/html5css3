@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="custom.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css"  type="text/css">
+  <title>라디오 체크박스 커스텀02</title>
+  <style>/* Google Web Fonts CDN */
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+    
+    /* Fontawesome 4.7 */
+    @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height: 1.5em;
+      margin: 0;
+      color: #222;
+      font-weight: 300;
+      background-color:#fff;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items:center;
+      height: 100vh;
+    }
+    a{
+      color:#222;
+      text-decoration:none;
+    }
+    .custom input[type=checkbox] {
+      display: none;
+    }
+    .custom label em {
+      /*border: 1px solid red;*/
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+      background: url(images/checkbox-01.png) no-repeat;
+      background-position: left center;
+    }
+    .custom input[type=checkbox]:checked + label em {
+      background-position: right center;
+    }
+
+    .grade input[type=radio] {
+      display: none;
+    }
+    .grade label {
+      cursor: pointer;
+    }
+    .grade label em {
+      /*border: 1px solid red;*/
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin-right: 5px;
+      background: url(images/radio-01.png) no-repeat;
+      background-position: left center;
+    }
+    .grade input[type=radio]:checked + label em {
+      background-position: right center;
+    }
+    .grade input[type=radio]:checked + label {
+      color: crimson;
+    }
+  </style>
+</head>
+
+<body>
+    
+  <div class="container">
+    <div class="custom">
+      <input type="checkbox" id="chk">
+      <label for="chk"><em></em>약관을 충분히 이해하였으며 동의 합니다.</label>
+    </div>
+    <hr style="margin: 20px 0;">
+    <div class="grade">
+      <input type="radio" name="grade" id="grade-chk1"> <label for="grade-chk1"><em></em>초등학생</label>
+      <input type="radio" name="grade" id="grade-chk2"> <label for="grade-chk2"><em></em>중학생</label>
+      <input type="radio" name="grade" id="grade-chk3"> <label for="grade-chk3"><em></em>고등학생</label>
+      <input type="radio" name="grade" id="grade-chk4"> <label for="grade-chk4"><em></em>대학생</label>
+    </div>
+  </div>
+
+</body>
+</html>

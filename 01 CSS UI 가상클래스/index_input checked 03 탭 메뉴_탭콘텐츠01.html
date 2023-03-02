@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>input type="radio" 탭메뉴</title>	
+<style>
+	* {margin:0;padding:0;box-sizing:border-box;}
+    
+	input[type="radio"] {display:none;}
+	input[type="radio"] + label {display:inline-block;position:relative;padding:20px;background:#ccc;color:#999;font-size:14px;cursor:pointer;}
+    input[type="radio"]:checked + label {background:#aaa;color:#000;}    
+    .tab_content {width:500px;margin:0 auto;font-size:0;}
+    .conbox {width:500px;height:600px;background:#aaa;margin:0 auto;padding:20px;display:none;font-size:20px;}    
+    input[id="tab01"]:checked ~ .con1 {display:block;}
+	input[id="tab02"]:checked ~ .con2 {display:block;}
+	input[id="tab03"]:checked ~ .con3 {display:block;}
+</style>
+</head>
+
+<body>
+	<div class="tab_content">
+	    <input type="radio" id="tab01" name="tabmenu" checked><label for="tab01">메뉴1</label>
+	    <input type="radio" id="tab02" name="tabmenu"><label for="tab02">메뉴2</label>
+	    <input type="radio" id="tab03" name="tabmenu"><label for="tab03">메뉴3</label>
+        <div class="conbox con1">
+            1
+        </div>
+        <div class="conbox con2">
+            2
+        </div>
+        <div class="conbox con3">
+            3
+        </div>
+	</div>
+</body>
+</html>
+  
